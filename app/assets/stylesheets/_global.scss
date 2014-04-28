@@ -1,0 +1,27 @@
+.wrapper {
+  @include outer-container;
+}
+
+#logo {
+  color: blue;
+}
+
+.left-split {
+  @include span-columns(6);
+}
+
+.right-split {
+  @include span-columns(6);
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.left-large {
+  @include span-columns(9);
+}
+
+.right-small {
+  @include span-columns(3);
+}

@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Relive</title>
+  <title>reLIVEit</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
+  <header class="navigation">
+    <div class="menu-wrapper">
+      <a class="logo">
+        <img src="http://www.newcovenantcc.net/wp-content/uploads/2013/05/Guitar.png" alt="">
+      </a>
+
+      <div class="nav">
+
+        <% if signed_in? %>
+          <ul id="navigation-menu">
+            <li><a href="user_artists.html">My Artists</a></li>
+            <li><a href="user_shows.html">My Shows</a></li>
+            <li><a href="user_venues.html">My Venues</a></li>
+            <li class="sign-up"><a><%= link_to 'Sign out', sign_out_path, :method => :delete %></a></li>
+          </ul>
+        <% end %>
+      </div>
+  </header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="http://www.newcovenantcc.net/wp-content/uploads/2013/05/Guitar.png" alt=""></a>
+    <div class="hero-copy">
+      <h1>reLIVEit Logo</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
+    </div>
+  </div>
+</div>
+
 <body>
 
-<%= yield %>
+  <% if signed_in? %>
+    Signed in as: <%= current_user.email %>
+  <% else %>
+    <%= link_to 'Sign in', sign_in_path %>
+  <% end %>
 
-</body>
+  <div id="flash">
+    <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+  <%= yield %>
+
+  </body>
 </html>

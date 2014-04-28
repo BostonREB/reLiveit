@@ -1,0 +1,18 @@
+<body>
+  <div class="wrapper">
+
+<h5><%= link_to "Select An Act to Follow", new_user_artist_path(current_user) %> <h5>
+
+
+<div id="checkboxes">
+<label>The Artists You Are Following</label><br>
+  <div>
+    <% @artists.each do |artist| %>
+      <div>
+        <%= render artist %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</body>
