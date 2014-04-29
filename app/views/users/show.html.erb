@@ -1,69 +1,18 @@
-  <body>
-    <div class="wrapper">
-      <p>  </p>
-      <p>  </p>
+<body>
+  <div class="wrapper">
 
-      <section class="left-split">
-        <h3> Upcoming Shows in Your Area! </h3>
-       <div id="box">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
-        </div>
-
-      </section>
-
-      <section class="right-split">
-        <h2>Support Live Music and then reLive your Experience</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          tempus ligula orci, in vulputate metus rutrum eget. Nullam quis
-          laoreet tortor. In accumsan tellus lectus, non imperdiet urna
-          fermentum non.  Vestibulum ante ipsum primis in faucibus orci luctus
-          et ultrices posuere cubilia Curae; Mauris eget risus sit amet justo
-          convallis pharetra in quis tellus. Mauris sit amet nisi suscipit,
-          aliquet massa in, accumsan ipsum. Mauris hendrerit aliquam dui non
-          fermentum.  Praesent quam ante, vestibulum sit amet condimentum a,
-          scelerisque ac enim. Phasellus ullamcorper libero malesuada, placerat
-          ligula sit amet, sollicitudin enim. Duis eu metus nec metus rutrum
-          scelerisque. Quisque venenatis, tortor sit amet luctus sagittis,
-          ipsum dui egestas erat, id congue dolor enim sit amet sapien.
-          Praesent egestas hendrerit sagittis.  Suspendisse nulla est, egestas
-          eu vehicula sed, elementum sed sapien.  Mauris in massa sodales,
-          posuere tellus nec, pharetra purus. Aenean auctor, velit ac congue
-          fringilla, ligula mauris malesuada lacus, eu consectetur arcu erat id
-          enim.
-        </p>
-      </section>
-    </div>
+<h5><%= link_to "Select An Act to Follow", new_user_artist_path(current_user) %> <h5>
 
 
-    <div class="wrapper">
+<div id="checkboxes">
+<label>The Artists You Are Following</label><br>
+  <div>
+    <% @artists.each do |artist| %>
+      <div>
+        <%= render artist %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-      <p>  </p>
-      <p>  </p>
-
-        <div id="checkboxes">
-          <label>The Artists You Are Following</label><br>
-          <ul>
-            <li><input type="checkbox"><a href="http://www.drivebytruckers.com">Drive-By Truckers</a></li>
-            <li><input type="checkbox">Lee Bains III and The Glory Fires</li>
-            <li><input type="checkbox">Slobberbone</li>
-            <li><input type="checkbox">Glossary</li>
-            <li><input type="checkbox">St. Paul and The Broken Bones</li>
-            <li><input type="checkbox">Mighty Mighty Bosstones</li>
-            <li><input type="checkbox">Chuck Regan</li>
-            <li><input type="checkbox">Felice Brothers</li>
-            <li><input type="checkbox">Hurray for the Riff Raff</li>
-            <li><input type="checkbox">Alabama Shakes</li>
-          </ul>
-    </div>
-
-  </body>
-</html>
+</body>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def index
-
+  def show
+    @artists = current_user.artists
   end
 end
