@@ -1,8 +1,0 @@
-<h3>Select Your Favorite Acts to Follow<h3>
-
-  <%= form_for [current_user, @artist] do |form| %>
-  <div>
-    <%= form.select :name, Artist::BANDS, include_blank: "Select a Band"  %>
-    <%= form.submit "Add Band" %>
-  </div>
-<% end %>

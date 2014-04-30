@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+ARTIST_NAMES = [
+  "Drive-By Truckers",
+  "My Morning Jacket",
+  "Umphreys McGee",
+  "Grace Potter and the Nocturnals",
+  "Yonder Mountain String Band",
+  "Camper Van Beethoven",
+  "John Butler Trio",
+]
+
+ARTIST_NAMES.each do |artist_name|
+  Artist.create(name: artist_name)
+end
