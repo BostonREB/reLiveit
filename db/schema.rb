@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429151330) do
+ActiveRecord::Schema.define(version: 20140430154810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "artists", ["user_id"], name: "index_artists_on_user_id", using: :btree
+  create_table "following_artist_relationships", force: true do |t|
+    t.integer  "followed_artist_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "following_artist_relationships", ["followed_artist_id"], name: "index_following_artist_relationships_on_followed_artist_id", using: :btree
+  add_index "following_artist_relationships", ["follower_id"], name: "index_following_artist_relationships_on_follower_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
