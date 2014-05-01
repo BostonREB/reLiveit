@@ -4,7 +4,7 @@ Relive::Application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :artists, only: [:show] do
+  resources :artists, only: [:index, :show] do
     member do
       post "follow" => "following_artist_relationships#create"
       delete "unfollow" => "following_artist_relationships#destroy"

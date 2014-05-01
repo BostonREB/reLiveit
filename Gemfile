@@ -31,7 +31,7 @@ gem 'bourbon'
 gem 'bitters'
 gem 'neat'
 gem 'httparty'
-gem 'bandsintown'
+gem 'songkickr'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -17,13 +17,14 @@
 
         <% if signed_in? %>
           <ul id="navigation-menu">
-            <li><a href="user_artists.html">My Artists</a></li>
+            <li><a><%= link_to "Artists", artists_path %></a></li>
             <li><a href="user_shows.html">My Shows</a></li>
             <li><a href="user_venues.html">My Venues</a></li>
             <li class="sign-up"><a><%= link_to 'Sign out', sign_out_path, :method => :delete %></a></li>
           </ul>
         <% end %>
       </div>
+    </div>
   </header>
 
 <div class="hero">
@@ -37,6 +38,7 @@
 </div>
 
 <body>
+  <h3><%= link_to "reLiveit", current_user %></h3><br>
 
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>

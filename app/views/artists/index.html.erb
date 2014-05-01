@@ -1,0 +1,12 @@
+<h3><u>Select An Artist To Follow</u></h3><br>
+
+<% @artists.each do |artist| %>
+  <h5><%= render artist %></h5>
+  <div>
+    <% if current_user.following? artist %>
+        <%= button_to "unFollow", unfollow_artist_path(artist), method: :delete %>
+    <% else %>
+        <%= button_to "Follow", follow_artist_path(artist) %>
+    <% end %>
+<% end %>
+
