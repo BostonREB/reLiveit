@@ -1,22 +1,12 @@
 class ArtistsController < ApplicationController
 
-  def show
+  def index
     @artists = Artist.all
   end
 
+  def show
+    @artist = Artist.find(params[:id])
+    @events = @artist.get_events
+  end
 
-  # def new
-  #   @artist = Artist.new
-  # end
-
-  # def create
-  #   @artist = current_user.artists.find_or_create_by(artist_params)
-  #   redirect_to current_user
-  # end
-
-
-  # private
-  #   def artist_params
-  #    params.require(:artist).permit(:name)
-  #   end
 end
