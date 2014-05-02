@@ -1,19 +1,21 @@
-<h4><%= @artist.name %></h4>
-
-<table>
-  <tr>
-    <th>Venue</th>
-    <th>City</th>
-    <th>Date</th>
-    <th></th>
-  </tr>
-
-<% @events.results.each do |event| %>
-  <tr>
-    <td><%= event.venue.display_name %></td>
-    <td><%= event.location.city %></td>
-    <td><%= event.start.to_formatted_s(:long_ordinal) %></td>
-    <td><%= link_to "Get Tickets", event.uri %></td>
-  </tr>
-<% end %>
-</table>
+<section class="left-large">
+  <h3>Upcoming <%= @artist.name %>'s Shows! </h3>
+    <div id="box-small">
+      <table>
+        <tr>
+          <th>Venue</th>
+          <th>City</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+        <% @events.results.each do |event| %>
+          <tr>
+            <td><%= event.venue.display_name %></td>
+            <td><%= event.location.city %></td>
+            <td><%= event.start.strftime("%B %d %l:%M %p") %></td>
+            <td><%= link_to "Get Tickets", event.uri %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+</section>

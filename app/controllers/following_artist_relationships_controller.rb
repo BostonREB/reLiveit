@@ -1,6 +1,6 @@
 class FollowingArtistRelationshipsController < ApplicationController
 
-    def create
+  def create
     followed_artist = Artist.find(params[:id])
     current_user.follow(followed_artist)
     redirect_to artists_path
