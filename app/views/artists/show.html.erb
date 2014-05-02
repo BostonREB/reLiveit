@@ -19,3 +19,15 @@
       </table>
     </div>
 </section>
+
+<section class="left-large">
+  <h5>Recent <%= @artist.name %> live show recordings! </h5>
+    <div>
+      <% @shows.each do |show| %>
+        <div>
+          <%= show["date"] %>
+          <%= link_to show["title"], "http://archive.org/details/#{show["identifier"]}" %>
+        </div>
+      <% end %>
+    </div>
+</section>
