@@ -8,9 +8,8 @@ class Artist < ActiveRecord::Base
     through: :followed_artist_relationships
 
 
-  def get_events
-    remote = Songkickr::Remote.new "hE5bvaHdNvEf3Tb4"
-    remote.events(artist_name: "Drive-By Truckers")
-  end
-
+  # def get_events(artist)
+  #   remote = Songkickr::Remote.new "hE5bvaHdNvEf3Tb4"
+  #   remote.events(artist_name: "artist.name")
+  # end
 end
