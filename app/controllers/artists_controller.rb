@@ -10,7 +10,6 @@ class ArtistsController < ApplicationController
     @shows = get_shows
   end
 
-
 private
 
   def get_tour_dates(artist)

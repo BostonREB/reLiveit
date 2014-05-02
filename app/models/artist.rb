@@ -7,9 +7,4 @@ class Artist < ActiveRecord::Base
   has_many :followers,
     through: :followed_artist_relationships
 
-
-  # def get_events(artist)
-  #   remote = Songkickr::Remote.new "hE5bvaHdNvEf3Tb4"
-  #   remote.events(artist_name: "artist.name")
-  # end
 end
