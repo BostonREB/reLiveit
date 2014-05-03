@@ -15,6 +15,14 @@ ARTIST_NAMES = [
   "Yonder Mountain String Band",
   "Camper Van Beethoven",
   "John Butler Trio",
+  "Guster",
+  "John Mayer",
+  "Further",
+  "Patterson Hood",
+  "Matisyahu",
+  "Smashing Pumpkins",
+  "String Cheese Incident",
+  "moe."
 ]
 
 ARTIST_NAMES.each do |artist_name|

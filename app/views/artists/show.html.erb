@@ -1,5 +1,5 @@
 <section class="left-large">
-  <h3>Upcoming <%= @artist.name %>'s Shows! </h3>
+  <h3>Upcoming <%= @artist.name %> Shows! </h3>
     <div id="box-small">
       <table>
         <tr>
@@ -18,16 +18,23 @@
         <% end %>
       </table>
     </div>
-</section>
+</section><br>
 
 <section class="left-large">
-  <h5>Recent <%= @artist.name %> live show recordings! </h5>
-    <div>
-      <% @shows.each do |show| %>
-        <div>
-          <%= show["date"] %>
-          <%= link_to show["title"], "http://archive.org/details/#{show["identifier"]}" %>
-        </div>
+  <br><h3>Recent <%= @artist.name %> live show recordings! </h3>
+    <div id="box-small2">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Title</th>
+        </tr>
+      <% @recordings.each do |recording| %>
+        <% if recording["collection"][0] == @artist.name.gsub(" ", "") %>
+          <tr>
+            <td><%= recording["date"] %></td>
+            <td><%= link_to recording["title"], "http://archive.org/details/#{recording["identifier"]}" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </div>
 </section>
