@@ -16,7 +16,9 @@ class RecordingRetriever
 
   def save_recordings(recordings)
     recordings.map do |show|
-      next if Recording.where(identifier: show['identifier']).exists?
+      if Recording.where(identifier: show['identifier']).exists?
+        next
+      end
       Recording.create(recording_params(show))
     end.compact
   end
