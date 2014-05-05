@@ -29,7 +29,7 @@
           <th>Title</th>
         </tr>
       <% @recordings.each do |recording| %>
-        <% if recording["collection"][0] == @artist.name.gsub(" ", "") %>
+        <% if recording["collection"] == @artist.name.gsub(" ", "") %>
           <tr>
             <td><%= recording["date"] %></td>
             <td><%= link_to recording["title"], "http://archive.org/details/#{recording["identifier"]}" %></td>
