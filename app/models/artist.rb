@@ -7,8 +7,7 @@ class Artist < ActiveRecord::Base
   has_many :followers,
     through: :followed_artist_relationships
 
-  has_many :recordings
-
+  has_many :recordings, dependent: :destroy
   has_many :shows
 
   def self.alphabetical
