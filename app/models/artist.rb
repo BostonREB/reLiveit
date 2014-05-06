@@ -8,7 +8,7 @@ class Artist < ActiveRecord::Base
     through: :followed_artist_relationships
 
   has_many :recordings, dependent: :destroy
-  has_many :shows
+  has_many :shows, dependent: :destroy
 
   def self.alphabetical
     order("lower(name) ASC")

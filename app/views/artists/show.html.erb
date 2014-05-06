@@ -8,14 +8,7 @@
           <th>Date</th>
           <th></th>
         </tr>
-        <% @events.results.each do |event| %>
-          <tr>
-            <td><%= event.venue.display_name %></td>
-            <td><%= event.location.city %></td>
-            <td><%= event.start.strftime("%B %d %l:%M %p") %></td>
-            <td><%= link_to "Get Tickets", event.uri %></td>
-          </tr>
-        <% end %>
+          <%= render @artist.shows %>
       </table>
     </div>
 </section><br>
@@ -29,12 +22,10 @@
           <th>Title</th>
         </tr>
       <% @recordings.each do |recording| %>
-        <% if recording["collection"] == @artist.name.gsub(" ", "") %>
           <tr>
             <td><%= recording["date"] %></td>
             <td><%= link_to recording["title"], "http://archive.org/details/#{recording["identifier"]}" %></td>
           </tr>
-        <% end %>
       <% end %>
     </div>
 </section>

@@ -6,4 +6,28 @@
     <% @followed_artists.each do |artist| %>
       <%= link_to artist.name, artist %><br>
     <% end %>
+
+  <section class="left-large">
+    <h5>Upcoming Shows By Your Artists! </h5>
+      <div id="box-small3">
+        <table>
+          <tr>
+            <th>Artist</th>
+            <th>Venue</th>
+            <th>City</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+          <% @followed_artists.each do |artist| %>
+            <% artist.shows.each do |show| %>
+              <tr>
+                <td><%= artist.name %></td>
+                <%= render show %>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+  </section><br>
+
 </div>
