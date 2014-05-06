@@ -8,11 +8,7 @@
           <th>Date</th>
           <th></th>
         </tr>
-        <% @artist.shows.each do |show| %>
-          <tr>
-            <%= render show %>
-          </tr>
-        <% end %>
+          <%= render @artist.shows %>
       </table>
     </div>
 </section><br>

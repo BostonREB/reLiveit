@@ -16,7 +16,7 @@ class RecordingRetriever
 
   def save_recordings(recordings)
     recordings.map do |show|
-      if check_recording_unique?(show) && check_show_data_for_artist?(show)
+      if recording_unique?(show) && verify_for_artist?(show)
         next
       end
       Recording.create(recording_params(show))
@@ -29,11 +29,11 @@ class RecordingRetriever
       merge(artist_id: artist.id, collection: show['collection'][0], upload_date: show['publicdate'])
   end
 
-  def check_show_data_for_artist?(show)
+  def verify_for_artist?(show)
     show["collection"] != @artist.name.gsub(" ", "")
   end
 
-  def check_recording_unique?(show)
+  def recording_unique?(show)
     Recording.where(identifier: show['identifier']).exists?
   end
 end

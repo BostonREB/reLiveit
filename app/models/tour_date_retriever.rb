@@ -15,14 +15,14 @@ class TourDateRetriever
 
   def save_tour_dates(shows)
     shows.results.map do |event|
-      if check_event_unique(event)
+      if event_unique?(event)
         next
       end
       Show.create(show_params(event))
     end.compact
   end
 
-  def check_event_unique(event)
+  def event_unique?(event)
     Show.where(songkick_id: event.id).exists?
   end
 
