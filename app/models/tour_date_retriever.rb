@@ -1,4 +1,5 @@
 class TourDateRetriever
+  attr_reader :artist
 
   def initialize(artist)
     @artist = artist
@@ -6,16 +7,17 @@ class TourDateRetriever
 
   def get_tour_api_data
     remote = Songkickr::Remote.new "hE5bvaHdNvEf3Tb4"
-    performances = remote.events(artist_name: @artist.name)
+    performances = remote.events(artist_name: artist.name)
     save_tour_dates(performances)
   end
 
   private
-  attr_reader :artist
 
   def save_tour_dates(shows)
     shows.results.map do |event|
-      next if check_event_unique(event)
+      if check_event_unique(event)
+        next
+      end
       Show.create(show_params(event))
     end.compact
   end

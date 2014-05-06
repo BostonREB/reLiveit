@@ -10,7 +10,7 @@ private
   def goto_user
     get_recordings_from_lma
     get_tour_dates_from_songkick
-    redirect_to user_path(current_user)
+    redirect_to current_user
   end
 
   def get_recordings_from_lma
