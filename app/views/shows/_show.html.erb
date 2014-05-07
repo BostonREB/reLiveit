@@ -1,6 +1,6 @@
 <tr>
   <td><%= show.venue %></td>
   <td><%= show.city %></td>
-  <td><%= show.date %></td>
+  <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
   <td><%= link_to "Get Tickets", show.uri %></td>
 </tr>
