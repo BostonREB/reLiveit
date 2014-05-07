@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-  <h5><%= link_to "Click to Select Your Artists to Follow", artists_path %> <h5>
+  <h5><%= link_to "Click to Select Artists to Follow", artists_path %> <h5>
 
   <div class="notifier">
     <h5>You are following these artists: </h5>
@@ -12,7 +12,7 @@
   <div class="notifier">
     <h5>Recently uploaded recordings by your artists</h5>
     <% @recent_recordings.each do |recording| %>
-        A recording of <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}"  %> was recently uploaded.<br>
+        <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
     <% end %>
   </div>
 
