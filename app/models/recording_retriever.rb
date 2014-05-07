@@ -16,7 +16,7 @@ class RecordingRetriever
 
   def save_recordings(recordings)
     recordings.map do |show|
-      if recording_unique?(show) && is_show?(show)
+      if recording_unique?(show) || is_show?(show)
         next
       end
       Recording.create(recording_params(show))
@@ -30,7 +30,7 @@ class RecordingRetriever
   end
 
   def is_show?(show)
-    show["collection"] != @artist.name.gsub(" ", "")
+    show["collection"][0] != @artist.name.gsub(" ", "")
   end
 
   def recording_unique?(show)

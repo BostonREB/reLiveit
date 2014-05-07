@@ -1,14 +1,24 @@
 <div class="wrapper">
 
-  <h5><%= link_to "Select Your Artists to Follow", artists_path %> <h5>
+  <h5><%= link_to "Click to Select Your Artists to Follow", artists_path %> <h5>
 
-  <h5>You are following these artists: <h5>
-    <% @followed_artists.each do |artist| %>
-      <%= link_to artist.name, artist %><br>
+  <div class="notifier">
+    <h5>You are following these artists: </h5>
+      <% @followed_artists.each do |artist| %>
+        <%= link_to artist.name, artist %><br>
+      <% end %>
+  </div>
+
+  <div class="notifier">
+    <h5>Recently uploaded recordings by your artists</h5>
+    <% @recent_recordings.each do |recording| %>
+        A recording of <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}"  %> was recently uploaded.<br>
     <% end %>
+  </div>
+
 
   <section class="left-large">
-    <h5>Upcoming Shows By Your Artists! </h5>
+    <h6>Upcoming Shows By Your Artists! </h6>
       <div id="box-small3">
         <table>
           <tr>
@@ -22,7 +32,10 @@
             <% artist.shows.each do |show| %>
               <tr>
                 <td><%= artist.name %></td>
-                <%= render show %>
+                <td><%= show.venue %></td>
+                <td><%= show.city %></td>
+                <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
+                <td><%= link_to "Get Tickets", show.uri %></td>
               </tr>
             <% end %>
           <% end %>

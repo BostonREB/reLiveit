@@ -20,8 +20,15 @@ body {
 
 .left-large {
   @include span-columns(9);
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .right-small {
   @include span-columns(3);
+}
+
+.notifier {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }

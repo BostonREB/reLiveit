@@ -27,7 +27,16 @@ ARTIST_NAMES = [
   "Ratdog",
   "Smashing Pumpkins",
   "String Cheese Incident",
-  "moe."
+  "moe.",
+  "Donna The Buffalo",
+  "Drivin n Cryin",
+  "Furthur",
+  "North Mississippi Allstars",
+  "Hank Williams III",
+  "Ryan Montbleau",
+  "311",
+  "Toad The Wet Sprocket",
+  "Robert Randolph and the Family Band"
 ]
 
 ARTIST_NAMES.each do |artist_name|
