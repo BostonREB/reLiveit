@@ -4,7 +4,7 @@
 
   <div class="notifier">
     <h5>You are following these artists: </h5>
-      <% @followed_artists.each do |artist| %>
+      <% current_user.followed_artists.each do |artist| %>
         <%= link_to artist.name, artist %><br>
       <% end %>
   </div>
@@ -28,16 +28,13 @@
             <th>Date</th>
             <th></th>
           </tr>
-          <% @followed_artists.each do |artist| %>
-            <% artist.shows.each do |show| %>
-              <tr>
-                <td><%= artist.name %></td>
-                <td><%= show.venue %></td>
-                <td><%= show.city %></td>
-                <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
-                <td><%= link_to "Get Tickets", show.uri %></td>
-              </tr>
-            <% end %>
+          <% @user_shows.each do |show| %>
+            <tr>
+              <td><%= show.venue %></td>
+              <td><%= show.city %></td>
+              <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
+              <td><%= link_to "Get Tickets", show.uri %></td>
+            </tr>
           <% end %>
         </table>
       </div>
