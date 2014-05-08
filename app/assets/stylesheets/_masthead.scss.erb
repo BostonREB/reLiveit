@@ -162,8 +162,18 @@ header.navigation ul li a:hover {
   header.navigation .sign-up a:hover {
     background: #6f99d5; } }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 $footer-height;
+}
+
 .footer-2 {
-  $footer-background: desaturate(darken($base-accent-color, 20), 30);
+
+  $footer-background: #242424;;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, .6);
   $footer-disclaimer-color: transparentize($footer-color, .6);
@@ -172,9 +182,13 @@ header.navigation ul li a:hover {
   padding: $base-line-height;
   width: 100%;
 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
   .footer-logo {
     margin-right: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 
     @include media($large-screen) {
       float: left;
@@ -183,7 +197,21 @@ header.navigation ul li a:hover {
   }
 
   .footer-logo img {
-    height: 1.6em;
+    height: 2em;
+  }
+
+  .footer-logo2 {
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-logo2 img {
+    height: 3.25em;
   }
 
   ul {
@@ -191,7 +219,7 @@ header.navigation ul li a:hover {
     @include media($large-screen) {
       float: left;
       margin-left: 1em;
-      margin-bottom: 2em;
+      margin-bottom: 0;
     }
   }
 
@@ -224,7 +252,7 @@ header.navigation ul li a:hover {
     }
 
     ul.footer-social {
-      margin-top: 1em;
+      margin-top: 1.5em;
 
       @include media($large-screen) {
         float: right;
@@ -253,4 +281,3 @@ header.navigation ul li a:hover {
     }
   }
 }
-
