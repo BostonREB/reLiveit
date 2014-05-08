@@ -1,11 +1,15 @@
-<h3><u>Select An Artist To Follow</u></h3><br>
+<div class="wrapper">
 
-<% @artists.each do |artist| %>
-  <h5><%= render artist %></h5>
-  <% if signed_in? %>
-    <div id="follow_artist_button_<%= artist.id %>">
-      <%= render "follow_artist_button", artist: artist %>
-    </div>
-  <% end %>
-<% end %>
+  <h3><u>Select An Artist To Follow</u></h3><br>
 
+  <div>
+    <% @artists.each do |artist| %>
+      <h5><%= render artist %></h5>
+      <% if signed_in? %>
+        <div id="follow_artist_button_<%= artist.id %>">
+          <%= render "follow_artist_button", artist: artist %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

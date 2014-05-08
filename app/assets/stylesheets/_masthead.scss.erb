@@ -175,11 +175,9 @@ body {
 
   $footer-background: #242424;;
   $footer-color: white;
-  $footer-link-color: transparentize($footer-color, .6);
-  $footer-disclaimer-color: transparentize($footer-color, .6);
 
   background: $footer-background;
-  padding: $base-line-height;
+  padding: .75em;
   width: 100%;
 
   position: absolute;
@@ -230,14 +228,6 @@ body {
     @include media($large-screen) {
       display: inline;
       text-align: left;
-    }
-  }
-
-  ul li a {
-    color: $footer-link-color;
-
-    &:hover {
-      color: transparentize($footer-color, 0);
     }
   }
 
