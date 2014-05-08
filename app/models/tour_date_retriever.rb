@@ -33,7 +33,8 @@ class TourDateRetriever
       songkick_id: event.id,
       artist_id: artist.id,
       city: event.location.city,
-      venue: event.venue.display_name
+      venue: event.venue.display_name,
+      artist_name: artist.name
     }
   end
 end

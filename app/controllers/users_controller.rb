@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         end
       end
     end
-    recent_recordings
+    sorted_recordings = recent_recordings.sort_by{ |recording| recording['date'] }.reverse
   end
 
   def find_all_user_shows
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
         user_shows << show
       end
     end
-    user_shows
+    sorted_user_shows = user_shows.sort_by{ |show| show['date'] }
   end
 end
