@@ -48,33 +48,28 @@
 
   <div id="flash">
     <% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
+      <div class="flash <%= key %>"><%= value %></div>
     <% end %>
   </div>
-  <div class="body-wrapper">
-  <%= yield %>
-</div>
 
-  </body>
+  <div class="body-wrapper">
+    <%= yield %>
+  </div>
+</body>
 
 <footer class="footer-2">
   <div class="footer-logo">
     <%= image_tag "Guitar.png" %>
-  </div>
-  <ul>
-    <li><a href="javascript:void(0)">About</a></li>
-  </ul>
-  <div class="footer-logo">
     <%= link_to image_tag("post-logo-hi.png"), "mailto:BostonREB99@gmail.com?Subject=reLIVEit" %>
     <%= link_to image_tag("twitter-l.png"), "https://twitter.com/BostonREB99" %>
     <%= link_to image_tag("linkedin_logo.png"), "https://www.linkedin.com/in/bostonreb" %>
   </div>
 
-    <div class="footer-secondary-links">
-      <div class="footer-logo2">
-          <li><a><%= link_to image_tag("songkick_logo.png"), "http://www.songkick.com/" %></a></li>
-      </div>
+  <div class="footer-secondary-links">
+    <div class="footer-logo2">
+      <%= link_to image_tag("songkick_logo.png"), "http://www.songkick.com/" %>
     </div>
+  </div>
 </footer>
 
 

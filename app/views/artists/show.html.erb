@@ -1,31 +1,35 @@
-<section class="left-large">
-  <h3>Upcoming <%= @artist.name %> Shows! </h3>
-    <div id="box-small">
-      <table>
-        <tr>
-          <th>Venue</th>
-          <th>City</th>
-          <th>Date</th>
-          <th></th>
-        </tr>
-        <%= render @artist.shows %>
-      </table>
-    </div>
-</section><br>
+<div class="wrapper">
 
-<section class="left-large">
-  <br><h3>Recent <%= @artist.name %> live show recordings! </h3>
-    <div id="box-small2">
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Title</th>
-        </tr>
-      <% @recordings.each do |recording| %>
+  <section class="left-large">
+    <h3>Upcoming <%= @artist.name %> Shows! </h3>
+      <div id="box-small3">
+        <table>
           <tr>
-            <td><%= recording.date.to_date.strftime('%B %e, %Y') %></td>
-            <td><%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %></td>
+            <th>Venue</th>
+            <th>City</th>
+            <th>Date</th>
+            <th></th>
           </tr>
-      <% end %>
-    </div>
-</section>
+          <%= render @artist.shows %>
+        </table>
+      </div>
+  </section><br>
+
+  <section class="left-large">
+    <br><h3>Recent <%= @artist.name %> live show recordings! </h3>
+      <div id="box-small2">
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Title</th>
+          </tr>
+          <% @recordings.each do |recording| %>
+            <tr>
+              <td><%= recording.date.to_date.strftime('%B %e, %Y') %></td>
+              <td><%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  </section>
+<div class="wrapper">
