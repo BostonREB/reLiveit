@@ -1,4 +1,5 @@
 class RecordingRetriever
+  attr_reader :artist
 
   def initialize(artist)
     @artist = artist
@@ -12,7 +13,6 @@ class RecordingRetriever
   end
 
   private
-  attr_reader :artist
 
   def save_recordings(recordings)
     recordings.map do |show|
@@ -30,7 +30,7 @@ class RecordingRetriever
   end
 
   def is_show?(show)
-    show["collection"][0] != @artist.name.gsub(" ", "")
+    show["collection"][0].downcase != artist.name.gsub(" ", "").downcase
   end
 
   def recording_unique?(show)
