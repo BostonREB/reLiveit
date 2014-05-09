@@ -7,7 +7,7 @@ class RecordingRetriever
 
   def get_api_data
     artist_name = artist.name.gsub(" ","+")
-    raw_data = HTTParty.get("http://archive.org/advancedsearch.php?q=#{artist_name}&fl%5B%5D=collection&fl%5B%5D=date&fl%5B%5D=identifier&fl%5B%5D=publicdate&fl%5B%5D=title&sort%5B%5D=publicdate+desc&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&output=json")
+    raw_data = HTTParty.get("http://archive.org/advancedsearch.php?q=#{artist_name}&fl%5B%5D=collection&fl%5B%5D=date&fl%5B%5D=identifier&fl%5B%5D=publicdate&fl%5B%5D=title&sort%5B%5D=publicdate+desc&sort%5B%5D=&sort%5B%5D=&rows=200&page=1&output=json")
     recordings = raw_data['response']['docs']
     save_recordings(recordings)
   end
