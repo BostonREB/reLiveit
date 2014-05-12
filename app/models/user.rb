@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :followed_artists,
     through: :followed_artist_relationships
 
+  has_many :shows, -> { where("date > ?", Date.today) },
+    through: :followed_artists
+
   def follow(artist)
     followed_artists << artist
   end
@@ -28,15 +31,5 @@ class User < ActiveRecord::Base
   def map_location
     latlong = Geocoder.coordinates(zip)
     "geo:#{latlong[0]},#{latlong[1]}"
-  end
-
-  def find_all_user_shows
-    user_shows = []
-    followed_artists.each do |artist|
-      artist.shows.each do |show|
-        user_shows << show
-      end
-    end
-    user_shows.sort_by{ |show| show['date'] }
   end
 end

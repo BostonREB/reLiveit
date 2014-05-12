@@ -5,10 +5,10 @@
 
   <% if current_user.followed_artists.present? %>
     <div class="notifier">
-        <h5>You are following these artists: </h5>
-        <% current_user.followed_artists.each do |artist| %>
-          <h5><%= link_to artist.name, artist %><br></h5>
-        <% end %>
+      <h5>You are following these artists: </h5>
+      <% current_user.followed_artists.each do |artist| %>
+        <h5><%= link_to artist.name, artist %><br></h5>
+      <% end %>
     </div>
 
     <div class="notifier">
@@ -17,7 +17,6 @@
           <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
       <% end %>
     </div>
-
 
     <section class="left-large">
       <h5>Upcoming Shows By Your Artists! </h5>

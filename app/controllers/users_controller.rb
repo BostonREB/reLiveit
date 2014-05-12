@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @recent_recordings = find_recent_recordings
-    @user_shows = current_user.find_all_user_shows
+    @user_shows = current_user.shows.by_date
     @user_location_shows = get_shows_by_location
   end
 
