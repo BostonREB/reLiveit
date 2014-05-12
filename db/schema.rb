@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140511195706) do
     t.string   "state"
     t.string   "songkick_api_date",              default: "2014-01-01"
     t.string   "lma_api_date",                   default: "2014-01-01"
-    t.boolean  "mailer",                         default: false
+    t.boolean  "mailer",                         default: false,        null: false
     t.string   "zip"
   end
 

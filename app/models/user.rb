@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def map_location
     latlong = Geocoder.coordinates(zip)
-    location = "geo:#{latlong[0]},#{latlong[1]}"
+    "geo:#{latlong[0]},#{latlong[1]}"
   end
 
   def find_all_user_shows
@@ -37,6 +37,6 @@ class User < ActiveRecord::Base
         user_shows << show
       end
     end
-    sorted_user_shows = user_shows.sort_by{ |show| show['date'] }
+    user_shows.sort_by{ |show| show['date'] }
   end
 end
