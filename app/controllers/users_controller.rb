@@ -41,6 +41,6 @@ class UsersController < ApplicationController
     location = current_user.map_location
     remote = Songkickr::Remote.new TourDateRetriever::SONGKICK_API_KEY
     raw_data = remote.events(location: location)
-    events = raw_data.results
+    raw_data.results
   end
 end
