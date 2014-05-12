@@ -1,43 +1,75 @@
 <div class="wrapper">
 
+  <h6><%= link_to "Update Your User Preferences", edit_user_path %></h6>
   <h5><%= link_to "Click to Select Artists to Follow", artists_path %> </h5>
 
-  <div class="notifier">
-    <h5>You are following these artists: </h5>
+  <% if current_user.followed_artists.present? %>
+    <div class="notifier">
+      <h5>You are following these artists: </h5>
       <% current_user.followed_artists.each do |artist| %>
         <h5><%= link_to artist.name, artist %><br></h5>
       <% end %>
-  </div>
+    </div>
 
-  <div class="notifier">
-    <h4>Recent recordings of your artists</h4>
-    <% @recent_recordings.each do |recording| %>
-        <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
-    <% end %>
-  </div>
+    <div class="notifier">
+      <h4>Recent recordings of your artists</h4>
+      <% @recent_recordings.each do |recording| %>
+          <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
+      <% end %>
+    </div>
 
-
-  <section class="left-large">
-    <h5>Upcoming Shows By Your Artists! </h5>
-      <div id="box-small3">
-        <table>
-          <tr>
-            <th>Artist</th>
-            <th>Venue</th>
-            <th>City</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-          <% @user_shows.each do |show| %>
+    <section class="left-large">
+      <h5>Upcoming Shows By Your Artists! </h5>
+        <div id="box-small3">
+          <table>
             <tr>
-              <td><%= show.artist_name %></td>
-              <td><%= show.venue %></td>
-              <td><%= show.city %></td>
-              <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
-              <td><%= link_to "Get Tickets", show.uri %></td>
+              <th>Artist</th>
+              <th>Venue</th>
+              <th>City</th>
+              <th>Date</th>
+              <th></th>
             </tr>
-          <% end %>
-        </table>
-      </div>
-  </section><br>
+            <% @user_shows.each do |show| %>
+              <tr>
+                <td><%= show.artist_name %></td>
+                <td><%= show.venue %></td>
+                <td><%= show.city %></td>
+                <td><%= show.date.to_time.strftime('%B %e, %Y') %></td>
+                <td><%= link_to "Get Tickets", show.uri %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+    </section><br>
+  <% else %>
+    <section class="left-large">
+      <h5>Upcoming Shows In Your Area! </h5>
+        <div id="box-small3">
+          <table>
+            <tr>
+              <th>Artist</th>
+              <th>Venue</th>
+              <th>City</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+            <% @user_location_shows.each do |show| %>
+              <tr>
+                <td>
+                  <% show.performances.each do |performer| %>
+                    <div>
+                      <%= performer.display_name %>
+                    </div>
+                  <% end %>
+                </td>
+                <td><%= show.venue.display_name %></td>
+                <td><%= show.location.city %></td>
+                <td><%= show.start.to_time.strftime('%B %e, %Y') %></td>
+                <td><%= link_to "Get Tickets", show.uri %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+    </section><br>
+  <% end %>
 </div>

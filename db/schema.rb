@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508153426) do
+ActiveRecord::Schema.define(version: 20140511195706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20140508153426) do
     t.string   "state"
     t.string   "songkick_api_date",              default: "2014-01-01"
     t.string   "lma_api_date",                   default: "2014-01-01"
+    t.boolean  "mailer",                         default: false,        null: false
+    t.string   "zip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
