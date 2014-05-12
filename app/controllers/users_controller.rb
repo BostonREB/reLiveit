@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  SONGKICK_API_KEY = ENV.fetch('SONGKICK_API_KEY')
 
   def show
     @recent_recordings = find_recent_recordings
@@ -8,13 +7,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+
   end
 
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to @user
+    redirect_to current_user
   end
 
   private
@@ -35,12 +34,12 @@ class UsersController < ApplicationController
         end
       end
     end
-    sorted_recordings = recent_recordings.sort_by{ |recording| recording['upload_date'] }.reverse
+    recent_recordings.sort_by{ |recording| recording['upload_date'] }.reverse
   end
 
   def get_shows_by_location
     location = current_user.map_location
-    remote = Songkickr::Remote.new SONGKICK_API_KEY
+    remote = Songkickr::Remote.new TourDateRetriever::SONGKICK_API_KEY
     raw_data = remote.events(location: location)
     events = raw_data.results
   end

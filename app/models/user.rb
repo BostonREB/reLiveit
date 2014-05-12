@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  validates_format_of :zip,
+    with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+    on: :update,
+    message: "Zip Code must be in form 12345 or 12345-1234"
+
   has_many :followed_artist_relationships,
     foreign_key: :follower_id,
     class_name: 'FollowingArtistRelationships'
 
   has_many :followed_artists,
     through: :followed_artist_relationships
-
-  # validates_format_of :zip, with: %r{\d{5}(-\d{4})?}, message: "should be in the form 12345 or 12345-1234"
 
   def follow(artist)
     followed_artists << artist

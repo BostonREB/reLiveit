@@ -3,7 +3,7 @@
   <h6><%= link_to "Update Your User Preferences", edit_user_path %></h6>
   <h5><%= link_to "Click to Select Artists to Follow", artists_path %> </h5>
 
-  <% if current_user.followed_artists != [] %>
+  <% if current_user.followed_artists.present? %>
     <div class="notifier">
         <h5>You are following these artists: </h5>
         <% current_user.followed_artists.each do |artist| %>

@@ -5,10 +5,10 @@ class HomesController < ApplicationController
 
   end
 
-private
+  private
 
   def goto_user
-    if current_user.city == ""
+    if current_user.city.blank?
       redirect_to edit_user_path(current_user)
     else
       redirect_to current_user
