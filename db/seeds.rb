@@ -21,6 +21,9 @@ ARTIST_NAMES = [
   "Guster",
   "Soulive",
   "Patterson Hood",
+  "Big Head Todd and the Monsters",
+  "Centro-matic",
+  "Local H",
   "Matisyahu",
   "Ratdog",
   "Smashing Pumpkins",
@@ -33,7 +36,7 @@ ARTIST_NAMES = [
   "North Mississippi Allstars",
   "Phil Lesh and Friends",
   "Ryan Montbleau",
-  "311",
+  "Jackie Greene",
   "Toad the Wet Sprocket",
   "Robert Randolph and the Family Band"
 ]

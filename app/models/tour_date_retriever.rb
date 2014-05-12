@@ -1,12 +1,13 @@
 class TourDateRetriever
-  attr_reader :artist
+  attr_reader :artist, :user
+  SONGKICK_API_KEY = ENV.fetch('SONGKICK_API_KEY')
 
   def initialize(artist)
     @artist = artist
   end
 
   def get_tour_api_data
-    remote = Songkickr::Remote.new "hE5bvaHdNvEf3Tb4"
+    remote = Songkickr::Remote.new SONGKICK_API_KEY
     performances = remote.events(artist_name: artist.name)
     save_tour_dates(performances)
   end

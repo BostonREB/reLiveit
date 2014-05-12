@@ -8,6 +8,10 @@ class HomesController < ApplicationController
 private
 
   def goto_user
-    redirect_to current_user
+    if current_user.city == ""
+      redirect_to edit_user_path(current_user)
+    else
+      redirect_to current_user
+    end
   end
 end

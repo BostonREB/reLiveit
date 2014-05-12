@@ -1,0 +1,19 @@
+<div class="wrapper">
+
+  <h5>Please enter your default location</h5>
+
+  <%= form_for @user do |form| %>
+    <div>
+      <%= form.label "City" %>
+      <%= form.text_field :city, placeholder: "City" %>
+    </div>
+    <div>
+      <%= form.label "Zip Code" %>
+      <%= form.text_field :zip, placeholder: "Zip Code" %>
+    </div>
+    <div>
+      <%= form.submit "Update Location Information" %>
+    </div>
+  <% end %>
+</div>
+

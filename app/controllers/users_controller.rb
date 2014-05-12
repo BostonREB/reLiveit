@@ -1,11 +1,30 @@
 class UsersController < ApplicationController
+  SONGKICK_API_KEY = ENV.fetch('SONGKICK_API_KEY')
 
   def show
     @recent_recordings = find_recent_recordings
-    @user_shows = find_all_user_shows
+    @user_shows = current_user.find_all_user_shows
+    @user_location_shows = get_shows_by_location
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to @user
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(
+      :city,
+      :zip
+    )
+  end
 
   def find_recent_recordings
     recent_recordings = []
@@ -19,13 +38,10 @@ class UsersController < ApplicationController
     sorted_recordings = recent_recordings.sort_by{ |recording| recording['upload_date'] }.reverse
   end
 
-  def find_all_user_shows
-    user_shows = []
-    current_user.followed_artists.each do |artist|
-      artist.shows.each do |show|
-        user_shows << show
-      end
-    end
-    sorted_user_shows = user_shows.sort_by{ |show| show['date'] }
+  def get_shows_by_location
+    location = current_user.map_location
+    remote = Songkickr::Remote.new SONGKICK_API_KEY
+    raw_data = remote.events(location: location)
+    events = raw_data.results
   end
 end
