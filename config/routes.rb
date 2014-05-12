@@ -2,7 +2,7 @@ Relive::Application.routes.draw do
 
   root 'homes#show'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   resources :artists, only: [:index, :show] do
     member do

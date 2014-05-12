@@ -20,7 +20,12 @@
             <li><a><%= link_to "Artists", artists_path %></a></li>
             <li><a href="user_shows.html">My Shows</a></li>
             <li><a href="user_venues.html">My Venues</a></li>
-            <li class="sign-up"><a><%= link_to 'Sign out', sign_out_path, :method => :delete %></a></li>
+            <li><a><%= link_to 'Sign out', sign_out_path, :method => :delete %></a></li>
+          </ul>
+        <% else %>
+          <ul id="navigation-menu">
+            <li><a><%= link_to 'Sign In', sign_in_path %></a></li>
+            <li><a><%= link_to 'Sign Up', sign_up_path %></a></li>
           </ul>
         <% end %>
       </div>
@@ -42,8 +47,6 @@
 
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>
-  <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
   <% end %>
 
   <div id="flash">
