@@ -12,7 +12,11 @@
       <%= form.text_field :zip, placeholder: "Zip Code" %>
     </div>
     <div>
-      <%= form.submit "Update Location Information" %>
+      <%= form.check_box :gets_email %>
+      <h5><%= form.label "Check to receive weekly updates of newly uploaded shows" %></5>
+    </div>
+    <div>
+      <%= form.submit "Update User Preferences" %>
     </div>
   <% end %>
 </div>
