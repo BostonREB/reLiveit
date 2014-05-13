@@ -36,6 +36,8 @@ gem 'httparty'
 gem 'songkickr'
 gem 'geocoder'
 
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   gem 'dotenv-rails'
