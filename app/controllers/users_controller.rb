@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @recent_recordings = find_recent_recordings
+    @recent_recordings = current_user.recordings.recent
     @user_shows = current_user.shows.by_date
     @user_location_shows = get_shows_by_location
   end
@@ -23,16 +23,6 @@ class UsersController < ApplicationController
       :city,
       :zip
     )
-  end
-
-  def find_recent_recordings
-    recent_recordings = []
-    current_user.recordings.each do |recording|
-      if recording.upload_date.to_date > 21.days.ago
-        recent_recordings << recording
-      end
-    end
-    recent_recordings.sort_by{ |recording| recording['upload_date'] }.reverse
   end
 
   def get_shows_by_location
