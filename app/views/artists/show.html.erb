@@ -1,7 +1,8 @@
 <div class="wrapper">
 
   <section class="left-large">
-    <h3>Upcoming <%= @artist.name %> Shows! </h3>
+    <h5>Upcoming <%= @artist.name %> Shows! </h5>
+    <% if @artist.shows.present? %>
       <div id="box-small3">
         <table>
           <tr>
@@ -13,10 +14,14 @@
           <%= render @artist.shows.by_date %>
         </table>
       </div>
+    <% else %>
+      Sorry!  No upcoming tour dates found.
+    <% end %>
   </section><br>
 
   <section class="left-large">
-    <br><h3>Recent <%= @artist.name %> live show recordings! </h3>
+    <br><h5>Recent <%= @artist.name %> live show recordings! </h5>
+    <% if @artist.recordings.present? %>
       <div id="box-small2">
         <table>
           <tr>
@@ -31,5 +36,8 @@
           <% end %>
         </table>
       </div>
+    <% else %>
+      Sorry! There are no recordings found
+    <% end %>
   </section>
 <div class="wrapper">

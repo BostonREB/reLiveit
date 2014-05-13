@@ -1,1 +1,34 @@
-<h2>Welcome to reLiveit<h2>
+<div class="wrapper">
+
+  <h2>Welcome to reLiveit</h2>
+
+  <section class="left-large">
+    <h5>Upcoming Shows In Your Area! </h5>
+      <div id="box-small3">
+        <table>
+          <tr>
+            <th>Artist</th>
+            <th>Venue</th>
+            <th>City</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+          <% @user_location_shows.each do |show| %>
+            <tr>
+              <td>
+                <% show.performances.each do |performer| %>
+                  <div>
+                    <%= performer.display_name %>
+                  </div>
+                <% end %>
+              </td>
+              <td><%= show.venue.display_name %></td>
+              <td><%= show.location.city %></td>
+              <td><%= show.start.to_time.strftime('%B %e, %Y') %></td>
+              <td><%= link_to "Get Tickets", show.uri %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  </section><br>
+</div>

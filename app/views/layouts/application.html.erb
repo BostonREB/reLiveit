@@ -18,8 +18,6 @@
         <% if signed_in? %>
           <ul id="navigation-menu">
             <li><a><%= link_to "Artists", artists_path %></a></li>
-            <li><a href="user_shows.html">My Shows</a></li>
-            <li><a href="user_venues.html">My Venues</a></li>
             <li><a><%= link_to 'Sign out', sign_out_path, :method => :delete %></a></li>
           </ul>
         <% else %>
@@ -37,7 +35,7 @@
     <a href="" class="hero-logo"><%= image_tag "Guitar.png" %></a>
     <div class="hero-copy">
       <h1>reLIVEit Logo</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum sed ante vel varius.</p>
+      <p>Music is life</p>
     </div>
   </div>
 </div>

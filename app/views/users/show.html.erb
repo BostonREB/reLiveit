@@ -12,14 +12,17 @@
     </div>
 
     <div class="notifier">
-      <h4>Recent recordings of your artists</h4>
-      <% @recent_recordings.each do |recording| %>
-          <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
+      <% if @recent_recordings.present? %>
+        <h4>Recent recordings of your artists</h4>
+        <% @recent_recordings.each do |recording| %>
+            <%= link_to recording.title, "http://archive.org/details/#{recording.identifier}" %> was recently uploaded.<br>
+        <% end %>
       <% end %>
     </div>
 
     <section class="left-large">
-      <h5>Upcoming Shows By Your Artists! </h5>
+      <% if current_user.shows.present? %>
+        <h5>Upcoming Shows By Your Artists! </h5>
         <div id="box-small3">
           <table>
             <tr>
@@ -40,6 +43,7 @@
             <% end %>
           </table>
         </div>
+      <% end %>
     </section><br>
   <% else %>
     <section class="left-large">
