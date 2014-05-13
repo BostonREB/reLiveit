@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :shows, -> { where("date > ?", Date.today) },
     through: :followed_artists
 
+  has_many :recordings,
+    through: :followed_artists
+
   def follow(artist)
     followed_artists << artist
   end

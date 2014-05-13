@@ -27,11 +27,9 @@ class UsersController < ApplicationController
 
   def find_recent_recordings
     recent_recordings = []
-    current_user.followed_artists.each do |artist|
-      artist.recordings.each do |recording|
-        if recording.upload_date.to_date > 21.days.ago
-          recent_recordings << recording
-        end
+    current_user.recordings.each do |recording|
+      if recording.upload_date.to_date > 21.days.ago
+        recent_recordings << recording
       end
     end
     recent_recordings.sort_by{ |recording| recording['upload_date'] }.reverse
