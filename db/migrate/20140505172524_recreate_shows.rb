@@ -1,4 +1,4 @@
-class CreateShows < ActiveRecord::Migration
+class RecreateShows < ActiveRecord::Migration
   def change
     create_table :shows do |t|
       t.belongs_to :artist, index: true
