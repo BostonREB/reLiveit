@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', :groups => [:development, :test]
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -37,7 +37,8 @@ gem 'songkickr'
 gem 'geocoder'
 
 
-group :development do
+group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
 end
 
