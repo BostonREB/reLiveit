@@ -6,6 +6,6 @@ class Recording < ActiveRecord::Base
   end
 
   def self.recent
-    where("upload_date < ?", 21.days.ago).by_date
+    where("upload_date > ?", 21.days.ago).by_date
   end
 end

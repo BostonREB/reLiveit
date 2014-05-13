@@ -26,9 +26,9 @@ class UsersController < ApplicationController
   end
 
   def get_shows_by_location
-    location = current_user.map_location
+    location = request.remote_ip
     remote = Songkickr::Remote.new TourDateRetriever::SONGKICK_API_KEY
-    raw_data = remote.events(location: location)
+    raw_data = remote.events(location: "ip:#{location}")
     raw_data.results
   end
 end
