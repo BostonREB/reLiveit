@@ -12,8 +12,6 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(user_params)
-    Rails.logger.info user_params.inspect
-    Rails.logger.info current_user.attributes.inspect
     redirect_to current_user
   end
 
