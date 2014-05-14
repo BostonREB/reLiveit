@@ -30,9 +30,4 @@ class User < ActiveRecord::Base
   def following?(artist)
     followed_artist_ids.include? artist.id
   end
-
-  def map_location
-    latlong = Geocoder.coordinates(zip)
-    "geo:#{latlong[0]},#{latlong[1]}"
-  end
 end

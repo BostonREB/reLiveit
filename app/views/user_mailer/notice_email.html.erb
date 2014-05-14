@@ -4,20 +4,20 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-  <p> Hi! </p><br>
-  <p> New shows by your favorite artists have been uploaded for your favorite artists this week.</p><br>
+  <p> Hi! </p>
+  <p> New shows by your favorite artists have been uploaded this week.</p>
 
   <p> Log into reLIVEit and check out these great live recordings: </p>
   <% @recordings.each do |recording| %>
     <div>
-      <%= recording.title %> was recently uploaded.<br>
+      <b><%= recording.title %></b><br>
     </div>
-  <% end %><br>
+  <% end %>
 
   <p> To go to reLIVEit, just click here:
-    <% link_to "ReLIVEit", "http://reliveit.herokuapp.com/" %>
+    <%= link_to "ReLIVEit", root_path %>
   </p>
 
-  <p>Thanks for joining reLIVEit.  Keep supporting live music!</p>
+  <p>Thanks for joining reLIVEit.  Keep supporting live music!!</p>
 </body>
 </html>
