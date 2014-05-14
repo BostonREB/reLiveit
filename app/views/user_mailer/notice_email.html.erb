@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <p> Hi! </p><br>
-    <p> New shows have been uploaded for your favorite artists this week.</p><br>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <p> Hi! </p><br>
+  <p> New shows by your favorite artistshave been uploaded for your favorite artists this week.</p><br>
 
-    <p> Log into reLIVEit and check out these great live recordings: </p>
-      <% @user.recordings.weekly.each do |recording| %>
-        <%= recording.title %> was recently uploaded.<br>
-      <% end %><br>
+  <p> Log into reLIVEit and check out these great live recordings: </p>
+  <% @recordings.each do |recording| %>
+    <div>
+      <%= recording.title %> was recently uploaded.<br>
+    </div>
+  <% end %><br>
 
-    <p> To go to reLIVEit, just click here:
-      <% link_to "ReLIVEit", "http://reliveit.herokuapp.com/" %>
-    </p>
+  <p> To go to reLIVEit, just click here:
+    <% link_to "ReLIVEit", "http://reliveit.herokuapp.com/" %>
+  </p>
 
-    <p>Thanks for joining reLIVEit.  Keep supporting live music!</p>
-  </body>
+  <p>Thanks for joining reLIVEit.  Keep supporting live music!</p>
+</body>
 </html>

@@ -88,5 +88,5 @@ Relive::Application.configure do
   :password       => ENV.fetch('SENDGRID_PASSWORD'),
   :domain         => 'heroku.com',
   :enable_starttls_auto => true
-}
+  }
 end
