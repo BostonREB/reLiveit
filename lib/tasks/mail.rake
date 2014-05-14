@@ -9,6 +9,6 @@ namespace :mailer do
           UserMailer.notice_email(user, recordings).deliver
         end
       end
-    end
+    # end
   end
 end
