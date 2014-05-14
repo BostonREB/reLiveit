@@ -9,7 +9,7 @@ class Recording < ActiveRecord::Base
     where("upload_date > ?", 21.days.ago).by_date
   end
 
-  def self.weekly
+  def self.within_past_week
     where("upload_date > ?", 7.days.ago).by_date
   end
 end
