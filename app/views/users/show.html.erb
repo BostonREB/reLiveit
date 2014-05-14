@@ -1,6 +1,9 @@
 <div class="wrapper">
 
-  <h6><%= link_to "Update Your User Email Preferences", edit_user_path %></h6><br>
+  <% content_for :right_corner do %>
+    <h6><%= link_to "Update Your User Email Preferences", edit_user_path %></h6><br>
+  <% end %>
+
   <h5><%= link_to "Click to Select Artists to Follow", artists_path %> </h5>
 
   <% if current_user.followed_artists.present? %>
