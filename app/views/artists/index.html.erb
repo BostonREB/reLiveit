@@ -7,7 +7,7 @@
       <h5><%= render artist %></h5>
       <% if signed_in? %>
         <div id="follow_artist_button_<%= artist.id %>">
-          <%= render "follow_artist_button", artist: artist %><br>
+          <%= render "follow_artist_button", artist: artist %>
         </div>
       <% end %>
     <% end %>
