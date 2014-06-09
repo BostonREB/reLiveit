@@ -11,4 +11,6 @@ Relive::Application.routes.draw do
     end
   end
 
+  resource :search, only: [:show]
+
 end

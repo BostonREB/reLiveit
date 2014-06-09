@@ -1,0 +1,7 @@
+<h3>Search results for "<%= @query %>":</h3>
+
+<% if @artists.empty? %>
+  <p> Sorry.  No artist matches your search </p>
+<% else %>
+  <%= render @artists %>
+<% end %>
