@@ -1,5 +1,12 @@
 <div class="wrapper">
 
+  <h5><%= @artist.name %></h5>
+    <% if signed_in? %>
+      <div id="follow_artist_button_<%= @artist.id %>">
+        <%= render "follow_artist_button", artist: @artist %>
+      </div>
+    <% end %>
+
   <section class="left-large">
     <h5>Upcoming <%= @artist.name %> Shows! </h5>
     <% if @artist.shows.present? %>

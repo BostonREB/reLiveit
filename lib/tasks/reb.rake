@@ -1,5 +1,11 @@
 namespace :get_data do
 
+  desc "Get artist data from Live Music Archive"
+  task artists: :environment do
+    artist_names = ArtistRetriever.new
+    artist_names.get_artists
+  end
+
   desc "Get bootleg data from Live Music Archive"
   task lma: :environment do
     Artist.find_each do |artist|
