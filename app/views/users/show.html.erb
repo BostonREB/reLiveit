@@ -4,6 +4,9 @@
     <h6><%= link_to "Update Your User Email Preferences", edit_user_path %></h6><br>
   <% end %>
 
+  <h4><%= @followed_artists %><h5>
+
+
   <h5>Find an artist</h5>
   <div>
     <%= form_for(:search, url: "/search", method: "get") do |form| %>
