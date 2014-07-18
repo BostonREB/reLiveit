@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20140514141807) do
 
   create_table "recordings", force: true do |t|
     t.string   "identifier"
+    t.string   "date"
     t.string   "title"
     t.integer  "artist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "collection"
     t.string   "upload_date"
-    t.string   "date"
   end
 
   add_index "recordings", ["artist_id"], name: "index_recordings_on_artist_id", using: :btree

@@ -17,6 +17,7 @@ ARTIST_NAMES = [
   "Cracker",
   "Yonder Mountain String Band",
   "Camper Van Beethoven",
+  "Futurebirds",
   "John Butler Trio",
   "Guster",
   "Soulive",
