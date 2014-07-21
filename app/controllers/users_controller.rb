@@ -7,10 +7,6 @@ class UsersController < ApplicationController
     @followed_artists = get_followed_artists
   end
 
-  def edit
-
-  end
-
   def update
     current_user.update(user_params)
     redirect_to current_user

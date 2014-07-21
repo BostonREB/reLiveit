@@ -21,4 +21,9 @@ namespace :get_data do
       artist_tour_dates.get_tour_api_data
     end
   end
+
+  desc "Remove data pertaining to past show dates"
+  task scrub: :environment do
+    Show.where('date < ?', Date.today).destroy_all
+  end
 end

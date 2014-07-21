@@ -20,10 +20,6 @@ class Searcher
     Artist.where("name ILIKE :query", query: fuzzy_query)
   end
 
-  def new_artist
-
-  end
-
   def fuzzy_query
     "%#{query}%"
   end
