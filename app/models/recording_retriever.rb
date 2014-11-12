@@ -6,7 +6,8 @@ class RecordingRetriever
   end
 
   def get_api_data
-    artist_name = artist.name.gsub(" ","+")
+    artist_name = artist.name.gsub(/[^0-9A-Za-z ]/, '')
+    artist_name = artist_name.gsub(" ","+")
     raw_data = HTTParty.get("http://archive.org/advancedsearch.php?q=#{artist_name}&fl%5B%5D=collection&fl%5B%5D=date&fl%5B%5D=identifier&fl%5B%5D=publicdate&fl%5B%5D=title&sort%5B%5D=publicdate+desc&sort%5B%5D=&sort%5B%5D=&rows=200&page=1&output=json")
     recordings = raw_data['response']['docs']
     save_recordings(recordings)
@@ -16,6 +17,9 @@ class RecordingRetriever
 
   def save_recordings(recordings)
     recordings.map do |show|
+      if [show["date"], show["title"], show["identifier"], show["collection"], show["publicdate"]].any? {|field| field.blank?}
+        next
+      end
       if recording_unique?(show) || is_show?(show)
         next
       end
@@ -30,10 +34,15 @@ class RecordingRetriever
   end
 
   def is_show?(show)
-    show["collection"][0].downcase != artist.name.gsub(" ", "").downcase
+    (show["collection"][0].downcase != artist.name.gsub(" ", "").downcase)
   end
 
   def recording_unique?(show)
     Recording.where(identifier: show['identifier']).exists?
   end
+
+  def good_date(show)
+    show["date"].empty?
+  end
+
 end
